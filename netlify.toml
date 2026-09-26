@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist/cloudcomputingassociates-com/browser"
+
+# SPA fallback so client-side routes / deep links resolve to the Angular app
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
