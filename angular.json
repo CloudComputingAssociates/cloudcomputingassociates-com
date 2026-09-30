@@ -16,12 +16,13 @@
             "outputPath": "dist/cloudcomputingassociates-com",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "outputMode": "static",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-               "src/favicon.ico",
               "src/assets",
               {
                 "glob": "**/*",
@@ -82,7 +83,6 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-               "src/favicon.ico",
               "src/assets",
               {
                 "glob": "**/*",

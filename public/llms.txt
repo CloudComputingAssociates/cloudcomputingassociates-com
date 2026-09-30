@@ -1,0 +1,37 @@
+# Cloud Computing Associates
+
+> Cloud Computing Associates is a national AI consulting firm. We help leadership
+> teams turn artificial intelligence into measurable business results, designing,
+> building and operating production systems on Google Cloud.
+
+## Who we are
+
+Founded in 2017, we are a virtual firm based in Portland, Oregon, serving clients
+nationwide, remote and on-site. We work alongside your teams from strategy through
+deployment, transfer the expertise to your engineers, and stay accountable for the
+results.
+
+## What we do
+
+- AI agents that take on operational work
+- Assistants grounded in your organization's own knowledge
+- Automated workflows
+- Custom models trained on your data
+- Google Cloud architecture, development, testing and delivery
+
+## Services
+
+- Analysis: requirements elicitation, product development and management, timeline projections
+- Consulting: just-in-time knowledge transfer and senior management presentations
+- Architecture & Design: platforms, apps, AI custom models and agents
+- Development: prototype to production-ready code
+- Testing: AI model behavior, end-to-end agentic system, cloud and UI/API testing
+- Compliance: data privacy (PI/HIPAA), AI-specific regulatory, industry and business requirements
+
+## Contact
+
+- Phone: +1 503-572-0066
+- Email: info@cloudcomputingassociates.com
+- Location: Portland, Oregon, serving clients nationwide
+- LinkedIn: https://www.linkedin.com/company/cloud-computing-associates
+- Website: https://cloudcomputingassociates.com/

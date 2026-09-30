@@ -1,0 +1,22 @@
+<app-navbar-full/>
+
+<section class="py-28 w-full table relative bg-[url('/assets/images/bg/bg-5.jpg')] bg-bottom bg-no-repeat" id="home">
+    <div class="absolute inset-0 bg-slate-950/80"></div>
+
+    <div class="container">
+        <div class="grid grid-cols-1 pb-8 text-center mt-10">
+            <h3 class="font-medium leading-normal text-3xl mt-10 text-white">Page not found</h3>
+        </div>
+    </div>
+</section>
+
+<section class="relative md:py-24 py-16">
+    <div class="container text-center">
+        <p class="text-slate-400 dark:text-slate-300 max-w-xl mx-auto">The page you are looking for does not exist or has moved.</p>
+        <div class="mt-8">
+            <a [routerLink]="'/'" class="py-2 px-5 inline-block font-normal tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center bg-violet-600 hover:bg-violet-700 border-violet-600 hover:border-violet-700 text-white rounded-md">Back to home</a>
+        </div>
+    </div>
+</section>
+
+<app-footer/>

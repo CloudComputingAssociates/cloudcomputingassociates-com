@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SwitcherComponent } from "./components/switcher/switcher.component";
 
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet,
-    SwitcherComponent
+    RouterOutlet
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

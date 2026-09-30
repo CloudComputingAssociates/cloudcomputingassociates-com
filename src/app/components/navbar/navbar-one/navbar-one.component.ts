@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, HostListener, Input } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, Inject, Input, PLATFORM_ID } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import * as feather from 'feather-icons';
 
@@ -22,25 +22,29 @@ export class NavbarOneComponent {
     this.toggleManu = !this.toggleManu
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
     this.current = this.router.url;
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo(0, 0);
+    }
   }
 
   @Input() currentSection:any
 
   ngAfterViewInit(): void {
-    feather.replace()
+    if (isPlatformBrowser(this.platformId)) {
+      feather.replace()
+    }
   }
 
   toggle:boolean = false
-  
+
   scroll:boolean = false
 
   @HostListener("window:scroll",['event'])
-  
+
 
   onhandlerScroll(){
     if (window.scrollY > 0) {

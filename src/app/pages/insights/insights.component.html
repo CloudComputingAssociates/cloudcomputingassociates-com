@@ -1,0 +1,29 @@
+<app-navbar-full/>
+
+<section class="py-28 w-full table relative bg-[url('/assets/images/bg/bg-5.jpg')] bg-bottom bg-no-repeat" id="home">
+    <div class="absolute inset-0 bg-slate-950/80"></div>
+
+    <div class="container">
+        <div class="grid grid-cols-1 pb-8 text-center mt-10">
+            <h3 class="font-medium leading-normal text-3xl mt-10 text-white">Insights</h3>
+        </div>
+    </div>
+</section>
+
+<section class="relative md:py-24 py-16">
+    <div class="container">
+        <div class="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
+            <article *ngFor="let item of insights" class="border-b border-gray-100 dark:border-gray-800 pb-8">
+                <p class="text-slate-400 text-sm mb-2">{{ item.date | date:'MMMM d, y' }}</p>
+                <h4 class="text-xl font-medium mb-2">
+                    <a [routerLink]="['/insights', item.slug]" class="hover:text-violet-600 transition duration-500 ease-in-out">{{ item.title }}</a>
+                </h4>
+                <p class="text-slate-400 dark:text-slate-300">{{ item.summary }}</p>
+            </article>
+
+            <p *ngIf="insights.length === 0" class="text-center text-slate-400">No articles yet.</p>
+        </div>
+    </div>
+</section>
+
+<app-footer/>

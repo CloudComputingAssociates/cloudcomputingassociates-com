@@ -9,11 +9,6 @@
         </a>
 
         <div class="nav-icons flex items-center lg_992:order-2 ms-auto lg:ms-4">
-<!--             <ul class="list-none menu-social mb-0">
-                <li class="inline">
-                    <a [routerLink]="'/login'" class="h-9 w-9 inline-flex items-center text-center justify-center text-base font-normal tracking-wide border align-middle transition duration-500 ease-in-out rounded-full bg-violet-600 hover:bg-violet-700 border-violet-600 hover:border-violet-700 text-white"><i class="uil uil-user"></i></a>
-                </li>
-            </ul> -->
             <button (click)="toggleMenu()" data-collapse="menu-collapse" type="button" class="collapse-btn inline-flex items-center ms-3 text-slate-950 dark:text-white lg_992:hidden" aria-controls="menu-collapse" aria-expanded="false">
                 <span class="sr-only">Navigation Menu</span>
                 <i class="mdi mdi-menu text-[24px]"></i>
@@ -31,15 +26,9 @@
                 <li class="nav-item navbar-item" [ngClass]="manu === '/services' ? 'active' : ''">
                     <a class="nav-link"  [routerLink]="'/services'">Services</a>
                 </li>
-                <!--<li class="nav-item navbar-item" [ngClass]="manu === '/pricing' ? 'active' : ''">
-                    <a class="nav-link"  [routerLink]="'/pricing'">Pricing</a>
+                <li class="nav-item navbar-item" [ngClass]="manu.startsWith('/insights') ? 'active' : ''">
+                    <a class="nav-link"  [routerLink]="'/insights'">Insights</a>
                 </li>
-                <li class="nav-item navbar-item" [ngClass]="manu === '/team' ? 'active' : ''" >
-                    <a class="nav-link" [routerLink]="'/team'">Team</a>
-                </li>
-                <li class="nav-item navbar-item" [ngClass]="manu === '/blogs' ? 'active' : ''">
-                    <a class="nav-link"  [routerLink]="'/blogs'">Blogs</a>
-                </li>-->
                 <li class="nav-item navbar-item" [ngClass]="manu === '/contactus' ? 'active' : ''">
                     <a class="nav-link"  [routerLink]="'/contactus'">Contact us</a>
                 </li>                       
