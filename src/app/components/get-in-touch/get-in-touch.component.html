@@ -6,32 +6,44 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 mt-8 items-center gap-[30px]">
-        <!--<div class="lg:col-span-8">
+        <div class="lg:col-span-8">
             <div class="p-6 rounded-md shadow-sm bg-white dark:bg-slate-900">
-                <form>
+                <div *ngIf="submitted" class="p-4 rounded bg-green-600/10 text-green-600 border border-green-600/20">
+                    Thank you. We'll respond within one business day.
+                </div>
+
+                <div *ngIf="error" class="mb-4 p-4 rounded bg-red-600/10 text-red-600 border border-red-600/20">
+                    Sorry, your message couldn't be sent. Please email us at info&#64;cloudcomputingassociates.com or call +1 503-572-0066.
+                </div>
+
+                <form *ngIf="!submitted" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field" ngModel></label>
+                    </p>
                     <div class="grid lg:grid-cols-12 lg:gap-[30px]">
                         <div class="lg:col-span-6 mb-5">
-                            <input name="name" id="name" type="text" class="form-input w-full py-2 px-3 h-10 bg-transparent border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded outline-none focus:border-violet-600/50 dark:focus:border-violet-600/50 focus:ring-0" placeholder="Name :">
+                            <input name="name" id="name" type="text" ngModel required class="form-input w-full py-2 px-3 h-10 bg-transparent border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded outline-none focus:border-violet-600/50 dark:focus:border-violet-600/50 focus:ring-0" placeholder="Name :">
                         </div>
 
                         <div class="lg:col-span-6 mb-5">
-                            <input name="email" id="email" type="email" class="form-input w-full py-2 px-3 h-10 bg-transparent border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded outline-none focus:border-violet-600/50 dark:focus:border-violet-600/50 focus:ring-0" placeholder="Email :">
+                            <input name="email" id="email" type="email" ngModel required class="form-input w-full py-2 px-3 h-10 bg-transparent border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded outline-none focus:border-violet-600/50 dark:focus:border-violet-600/50 focus:ring-0" placeholder="Email :">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1">
                         <div class="mb-5">
-                            <input name="subject" id="subject" class="form-input w-full py-2 px-3 h-10 bg-transparent border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded outline-none focus:border-violet-600/50 dark:focus:border-violet-600/50 focus:ring-0" placeholder="Subject :">
+                            <input name="company" id="company" ngModel class="form-input w-full py-2 px-3 h-10 bg-transparent border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded outline-none focus:border-violet-600/50 dark:focus:border-violet-600/50 focus:ring-0" placeholder="Company :">
                         </div>
 
                         <div class="mb-5">
-                            <textarea name="comments" id="comments" class="form-input w-full py-2 px-3 bg-transparent border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded outline-none focus:border-violet-600/50 dark:focus:border-violet-600/50 focus:ring-0 h-28" placeholder="Message :"></textarea>
+                            <textarea name="message" id="message" ngModel required class="form-input w-full py-2 px-3 bg-transparent border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded outline-none focus:border-violet-600/50 dark:focus:border-violet-600/50 focus:ring-0 h-28" placeholder="Message :"></textarea>
                         </div>
                     </div>
                     <button type="submit" id="submit" name="send" class="py-2 px-5 inline-block font-normal tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center bg-violet-600 hover:bg-violet-700 border-violet-600 hover:border-violet-700 text-white rounded-md">Send Message</button>
                 </form>
             </div>
-        </div>-->
+        </div>
 
         <div class="lg:col-span-4">
             <div class="lg:ms-8">
@@ -42,7 +54,7 @@
 
                     <div class="flex-1 ms-6">
                         <h5 class="text-lg dark:text-white mb-2 font-medium">Phone</h5>
-                        <a href="tel:+152534-468-854" class="text-slate-400">+1 503-572-0066</a>
+                        <a href="tel:+15035720066" class="text-slate-400">+1 503-572-0066</a>
                     </div>
                 </div>
 
@@ -64,7 +76,7 @@
 
                     <div class="flex-1 ms-6">
                         <h5 class="text-lg dark:text-white mb-2 font-medium">Location</h5>
-                        <p class="text-slate-400 mb-2">Happy Valley, Oregon 97015 USA </p>
+                        <p class="text-slate-400 mb-2">Portland, Oregon · Serving clients nationwide</p>
                     </div>
                 </div>
             </div>

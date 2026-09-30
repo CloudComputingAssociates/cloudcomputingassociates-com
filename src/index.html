@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 <body class="font-inter text-base text-slate-950 dark:text-white dark:bg-slate-900">
+  <!-- Hidden static form so Netlify detects the "contact" form at deploy time (Angular SPA renders its forms at runtime). -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="company" />
+    <textarea name="message"></textarea>
+    <input name="bot-field" />
+  </form>
   <app-root></app-root>
 </body>
 </html>
