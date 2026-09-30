@@ -38,7 +38,8 @@ export class ContactusComponent {
       this.submitted = true;
       this.error = false;
       form.resetForm();
-    } catch {
+    } catch (err) {
+      console.error('Contact form submission failed', err);
       this.error = true;
     }
   }
