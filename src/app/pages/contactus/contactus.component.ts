@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { NavbarFullComponent } from "../../components/navbar/navbar-full/navbar-full.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { SeoService, SITE_ORIGIN } from '../../services/seo.service';
+import { getServicePage } from '../../data/services';
 
 @Component({
   selector: 'app-contactus',
@@ -19,8 +21,9 @@ import { SeoService, SITE_ORIGIN } from '../../services/seo.service';
 export class ContactusComponent implements OnInit {
   submitted = false;
   error = false;
+  serviceTitle: string | null = null;
 
-  constructor(private seo: SeoService) {}
+  constructor(private seo: SeoService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.seo.update({
@@ -28,6 +31,9 @@ export class ContactusComponent implements OnInit {
       description: 'Contact Cloud Computing Associates. Portland, Oregon, serving clients nationwide. Use the contact form to get in touch.',
       url: SITE_ORIGIN + '/contactus'
     });
+
+    const slug = this.route.snapshot.queryParamMap.get('service');
+    this.serviceTitle = slug ? getServicePage(slug)?.title ?? null : null;
   }
 
   async onSubmit(form: NgForm) {

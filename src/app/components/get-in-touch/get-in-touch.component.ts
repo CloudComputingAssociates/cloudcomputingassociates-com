@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { getServicePage } from '../../data/services';
 
 @Component({
   selector: 'app-get-in-touch',
@@ -11,9 +13,17 @@ import { FormsModule, NgForm } from '@angular/forms';
   templateUrl: './get-in-touch.component.html',
   styleUrl: './get-in-touch.component.css'
 })
-export class GetInTouchComponent {
+export class GetInTouchComponent implements OnInit {
   submitted = false;
   error = false;
+  serviceTitle: string | null = null;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const slug = this.route.snapshot.queryParamMap.get('service');
+    this.serviceTitle = slug ? getServicePage(slug)?.title ?? null : null;
+  }
 
   async onSubmit(form: NgForm) {
     const body = new URLSearchParams();

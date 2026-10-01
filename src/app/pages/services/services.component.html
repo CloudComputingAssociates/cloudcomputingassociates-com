@@ -9,8 +9,49 @@
     </div>
 </section>
 
+<!-- Core Positioning -->
+<section class="relative md:py-24 py-16">
+    <div class="container">
+        <div class="grid grid-cols-1 text-center">
+            <h3 class="mb-6 md:text-3xl md:leading-normal text-2xl font-medium">{{corePositioning.headline}}</h3>
+            <p *ngFor="let p of corePositioning.body" class="text-slate-400 max-w-2xl mx-auto mb-4">{{p}}</p>
+        </div>
+
+        <div class="mt-6 max-w-2xl mx-auto text-center">
+            <p class="text-slate-400">{{corePositioning.approachLead}}</p>
+            <p class="mt-3 md:text-xl text-lg font-medium text-violet-600">{{corePositioning.approach}}</p>
+        </div>
+    </div>
+</section>
+
+<!-- Service grid -->
 <section class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800">
-    <app-service-one [title]="true"/>
+    <app-service-one [title]="false"/>
+</section>
+
+<!-- Delivery Framework -->
+<section id="delivery-framework" class="relative md:py-24 py-16">
+    <div class="container">
+        <div class="grid grid-cols-1 pb-8 text-center">
+            <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl font-medium">{{deliveryFramework.heading}}</h3>
+            <p *ngFor="let line of deliveryFramework.intro" class="text-slate-400 max-w-xl mx-auto">{{line}}</p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+            <div *ngFor="let phase of deliveryFramework.phases; let i = index" class="text-center">
+                <div class="flex items-center justify-center h-14 w-14 mx-auto rounded-full bg-violet-600/10 text-violet-600 text-xl font-semibold transition duration-500 ease-in-out hover:bg-violet-600 hover:text-white">{{i + 1}}</div>
+                <div class="mt-5">
+                    <h5 class="text-lg font-medium">{{phase.name}}</h5>
+                    <p class="text-slate-400 mt-3">{{phase.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800">
+    <app-get-in-touch/>
 </section>
 
 <app-footer/>

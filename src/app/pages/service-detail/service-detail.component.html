@@ -1,0 +1,140 @@
+<app-navbar-full/>
+
+<ng-container *ngIf="page">
+  <!-- Hero -->
+  <section class="py-28 w-full table relative bg-[url('/assets/images/bg/bg-5.jpg')] bg-bottom bg-no-repeat" id="home">
+    <div class="absolute inset-0 bg-slate-950/80"></div>
+
+    <div class="container">
+      <div class="grid grid-cols-1 pb-8 text-center mt-10">
+        <div class="inline-flex items-center justify-center gap-3 mx-auto mb-5">
+          <span class="flex items-center justify-center h-9 w-9 rounded-full bg-violet-600 text-white font-semibold">{{page.number}}</span>
+          <span class="text-slate-300 uppercase tracking-wider text-sm">{{page.title}}</span>
+        </div>
+        <h3 class="font-medium leading-normal text-3xl md:text-4xl mt-2 text-white">{{page.headline}}</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="relative md:py-24 py-16">
+    <div class="container">
+      <div class="mx-auto max-w-[760px]">
+        <ng-container *ngFor="let seg of segments">
+
+          <!-- Technical panel: one panel for a run of consecutive technical blocks -->
+          <div *ngIf="seg.technical" class="my-10 rounded-lg border border-violet-600/20 bg-violet-600/5 dark:bg-violet-600/10 p-6 md:p-8">
+            <span class="inline-block mb-5 text-xs font-semibold uppercase tracking-wider text-violet-600">For technical teams</span>
+            <ng-container *ngFor="let block of seg.blocks">
+              <ng-container *ngTemplateOutlet="blockTpl; context: { $implicit: block }"></ng-container>
+            </ng-container>
+          </div>
+
+          <!-- Normal blocks -->
+          <ng-container *ngIf="!seg.technical">
+            <ng-container *ngFor="let block of seg.blocks">
+              <ng-container *ngTemplateOutlet="blockTpl; context: { $implicit: block }"></ng-container>
+            </ng-container>
+          </ng-container>
+
+        </ng-container>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="relative py-16 bg-violet-600">
+    <div class="container">
+      <div class="text-center">
+        <a [routerLink]="'/contactus'" [queryParams]="{ service: page.slug }" class="py-2 px-6 inline-block font-medium tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center bg-white hover:bg-gray-100 border-white text-violet-600 rounded-md">{{page.cta}}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore other services -->
+  <section class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800">
+    <div class="container">
+      <div class="grid grid-cols-1 pb-8 text-center">
+        <h3 class="mb-4 md:text-2xl text-xl font-medium">Explore other services</h3>
+      </div>
+
+      <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[20px]">
+        <a *ngFor="let o of others" [routerLink]="['/services', o.slug]" class="group flex items-start gap-4 p-5 rounded-md bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition duration-500 ease-in-out">
+          <i [ngClass]="o.icon" class="text-2xl text-violet-600 mt-1"></i>
+          <span>
+            <span class="block font-medium transition duration-500 ease-in-out group-hover:text-violet-600">{{o.title}}</span>
+            <span class="block text-sm text-slate-400 mt-1">{{o.tileTagline}}</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</ng-container>
+
+<app-footer/>
+
+<!-- ------------------------------------------------------------------ -->
+<!-- Shared block renderer: switches on block.kind, uses the block's own -->
+<!-- heading/intro/optional fields.                                      -->
+<!-- ------------------------------------------------------------------ -->
+<ng-template #blockTpl let-block>
+  <div [ngSwitch]="block.kind" class="mb-8">
+
+    <!-- prose -->
+    <div *ngSwitchCase="'prose'">
+      <h4 *ngIf="block.heading" class="mb-4 text-xl md:text-2xl font-medium">{{block.heading}}</h4>
+      <p *ngIf="block.lead" class="mb-3 text-lg font-semibold text-slate-800 dark:text-white">{{block.lead}}</p>
+      <p *ngFor="let p of block.body" class="text-slate-400 leading-relaxed mb-3">{{p}}</p>
+    </div>
+
+    <!-- numbered steps -->
+    <div *ngSwitchCase="'steps'">
+      <h4 *ngIf="block.heading" class="mb-4 text-xl md:text-2xl font-medium">{{block.heading}}</h4>
+      <p *ngIf="block.intro" class="mb-4 text-slate-400">{{block.intro}}</p>
+      <ol class="space-y-3">
+        <li *ngFor="let s of block.steps; let i = index" class="flex items-start gap-3">
+          <span class="flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-full bg-violet-600/10 text-violet-600 text-sm font-semibold">{{i + 1}}</span>
+          <span class="text-slate-400 pt-0.5">{{s}}</span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- label + description list -->
+    <div *ngSwitchCase="'labelList'">
+      <h4 *ngIf="block.heading" class="mb-4 text-xl md:text-2xl font-medium">{{block.heading}}</h4>
+      <p *ngIf="block.intro" class="mb-4 text-slate-400">{{block.intro}}</p>
+      <div class="space-y-4">
+        <div *ngFor="let it of block.items" class="p-4 rounded-md bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 shadow-sm">
+          <h5 class="font-medium">{{it.label}}</h5>
+          <p class="text-slate-400 mt-1">{{it.desc}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- plain bullet list -->
+    <div *ngSwitchCase="'bulletList'">
+      <h4 *ngIf="block.heading" class="mb-4 text-xl md:text-2xl font-medium">{{block.heading}}</h4>
+      <p *ngIf="block.intro" class="mb-4 text-slate-400">{{block.intro}}</p>
+      <ul class="list-disc ps-5 space-y-2 text-slate-400 marker:text-violet-600">
+        <li *ngFor="let it of block.items">{{it}}</li>
+      </ul>
+    </div>
+
+    <!-- quoted question / callout -->
+    <div *ngSwitchCase="'quote'">
+      <h4 *ngIf="block.heading" class="mb-4 text-xl md:text-2xl font-medium">{{block.heading}}</h4>
+      <p *ngIf="block.intro" class="mb-2 text-slate-400">{{block.intro}}</p>
+      <blockquote class="border-s-4 border-violet-600 ps-4 py-1 text-lg italic text-slate-700 dark:text-slate-200">&ldquo;{{block.quote}}&rdquo;</blockquote>
+      <p *ngIf="block.response" class="text-slate-400 mt-3">{{block.response}}</p>
+    </div>
+
+    <!-- result -->
+    <div *ngSwitchCase="'result'">
+      <div class="rounded-md bg-gray-50 dark:bg-slate-800 border-s-4 border-violet-600 p-6">
+        <h4 class="mb-3 text-xl md:text-2xl font-medium">{{block.heading}}</h4>
+        <p *ngFor="let p of block.body" class="text-lg text-slate-700 dark:text-slate-200 mb-2">{{p}}</p>
+      </div>
+    </div>
+
+  </div>
+</ng-template>

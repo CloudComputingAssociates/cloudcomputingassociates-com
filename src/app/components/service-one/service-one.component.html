@@ -1,10 +1,11 @@
 <div class="container lg mx-auto">
     <div *ngIf="title === true" class="grid grid-cols-1 pb-8 text-center">
         <h3 class="mb-4 md:text-2xl text-xl font-medium">Our Services</h3>
+        <p class="text-slate-400 max-w-xl mx-auto">{{subtitle}}</p>
     </div>
 
     <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-4 gap-[30px]">
-        <div *ngFor="let item of servicesData" class="group relative lg:px-6 mt-4 transition duration-500 ease-in-out rounded-xl overflow-hidden text-center">
+        <a *ngFor="let item of servicePages" [routerLink]="['/services', item.slug]" class="group relative block lg:px-6 py-6 mt-4 transition duration-500 ease-in-out rounded-xl overflow-hidden text-center hover:shadow-xl hover:shadow-slate-100 dark:hover:shadow-slate-800">
             <div class="relative overflow-hidden text-transparent -m-3">
                 <i data-feather="hexagon" class="h-28 w-28 fill-violet-600/5 mx-auto rotate-[30deg]"></i>
                 <div class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-violet-600 rounded-xl transition duration-500 ease-in-out text-3xl flex align-middle justify-center items-center">
@@ -13,9 +14,10 @@
             </div>
 
             <div class="mt-6">
-                <a [routerLink]="'/services'" class="text-lg h5 transition duration-500 ease-in-out hover:text-violet-600">{{item.title}}</a>
-                <p class="text-slate-400 transition duration-500 ease-in-out mt-3">{{item.desc}}</p>
+                <span class="text-lg h5 font-medium transition duration-500 ease-in-out group-hover:text-violet-600">{{item.title}}</span>
+                <p class="text-violet-600 text-sm font-medium mt-2">{{item.tileTagline}}</p>
+                <p class="text-slate-400 transition duration-500 ease-in-out mt-3">{{item.summary}}</p>
             </div>
-        </div>
+        </a>
     </div>
 </div>

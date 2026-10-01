@@ -1,13 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { servicesData } from '../../data/data';
-
-interface ServicesData{
-  icon: string;
-  title: string;
-  desc: string;
-}
+import { servicePages, ServicePage, corePositioning } from '../../data/services';
 
 @Component({
   selector: 'app-service-one',
@@ -19,6 +13,7 @@ interface ServicesData{
   styleUrl: './service-one.component.css'
 })
 export class ServiceOneComponent {
-  servicesData:ServicesData[] = servicesData
+  servicePages: ServicePage[] = servicePages
+  subtitle = corePositioning.headline
   @Input() title:any
 }

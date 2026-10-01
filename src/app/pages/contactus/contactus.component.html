@@ -22,6 +22,8 @@
                     <div class="bg-white dark:bg-slate-900 rounded-md shadow-sm dark:shadow-gray-700 p-6">
                         <h3 class="mb-6 text-2xl leading-normal font-medium">Ready to get started?</h3>
 
+                        <p *ngIf="serviceTitle" class="mb-5 text-sm font-medium text-violet-600">Regarding: {{serviceTitle}}</p>
+
                         <div *ngIf="submitted" class="p-4 rounded bg-green-600/10 text-green-600 border border-green-600/20">
                             Thank you. We'll respond within one business day.
                         </div>
@@ -32,6 +34,7 @@
 
                         <form *ngIf="!submitted" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
                             <input type="hidden" name="form-name" value="contact">
+                            <input type="hidden" name="service" [ngModel]="serviceTitle">
                             <p class="hidden">
                                 <label>Don't fill this out if you're human: <input name="bot-field" ngModel></label>
                             </p>
