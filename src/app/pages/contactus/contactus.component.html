@@ -27,7 +27,7 @@
                         </div>
 
                         <div *ngIf="error" class="mb-4 p-4 rounded bg-red-600/10 text-red-600 border border-red-600/20">
-                            Sorry, your message couldn't be sent. Please email us at info&#64;cloudcomputingassociates.com or call +1 503-572-0066.
+                            Sorry, your message couldn't be sent. Please try again in a moment.
                         </div>
 
                         <form *ngIf="!submitted" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
@@ -67,41 +67,7 @@
     </div>
 
     <div class="container lg:mt-24 mt-16">
-        <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
-            <div class="text-center px-6">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-28 w-28 fill-violet-600/5 mx-auto rotate-[30deg]"></i>
-                    <div class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-violet-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="uil uil-phone"></i>
-                    </div>
-                </div>
-
-                <div class="content mt-7">
-                    <h5 class="title h5 text-xl font-medium">Phone</h5>
-
-                    <div class="mt-5">
-                        <a href="tel:+15035720066" class="text-violet-600 hover:text-violet-600 after:bg-violet-600 transition duration-500">+1 503-572-0066</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center px-6">
-                <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="h-28 w-28 fill-violet-600/5 mx-auto rotate-[30deg]"></i>
-                    <div class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-violet-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                        <i class="uil uil-envelope"></i>
-                    </div>
-                </div>
-
-                <div class="content mt-7">
-                    <h5 class="title h5 text-xl font-medium">Email</h5>
-
-                    <div class="mt-5">
-                        <a href="mailto:info@cloudcomputingassociates.com" class="text-violet-600 hover:text-violet-600 after:bg-violet-600 transition duration-500">info&#64;cloudcomputingassociates.com</a>
-                    </div>
-                </div>
-            </div>
-
+        <div class="grid grid-cols-1">
             <div class="text-center px-6">
                 <div class="relative overflow-hidden text-transparent -m-3">
                     <i data-feather="hexagon" class="h-28 w-28 fill-violet-600/5 mx-auto rotate-[30deg]"></i>

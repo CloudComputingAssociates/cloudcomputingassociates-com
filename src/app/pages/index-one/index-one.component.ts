@@ -44,8 +44,6 @@ export class IndexOneComponent implements OnInit {
         addressRegion: 'OR',
         addressCountry: 'US'
       },
-      telephone: '+1-503-572-0066',
-      email: 'info@cloudcomputingassociates.com',
       foundingDate: '2017'
     });
   }

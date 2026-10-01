@@ -13,7 +13,7 @@
                 </div>
 
                 <div *ngIf="error" class="mb-4 p-4 rounded bg-red-600/10 text-red-600 border border-red-600/20">
-                    Sorry, your message couldn't be sent. Please email us at info&#64;cloudcomputingassociates.com or call +1 503-572-0066.
+                    Sorry, your message couldn't be sent. Please try again in a moment.
                 </div>
 
                 <form *ngIf="!submitted" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
@@ -48,28 +48,6 @@
         <div class="lg:col-span-4">
             <div class="lg:ms-8">
                 <div class="flex">
-                    <div class="icons text-center mx-auto">
-                        <i class="uil uil-phone block rounded text-2xl dark:text-white mb-0"></i>
-                    </div>
-
-                    <div class="flex-1 ms-6">
-                        <h5 class="text-lg dark:text-white mb-2 font-medium">Phone</h5>
-                        <a href="tel:+15035720066" class="text-slate-400">+1 503-572-0066</a>
-                    </div>
-                </div>
-
-                <div class="flex mt-4">
-                    <div class="icons text-center mx-auto">
-                        <i class="uil uil-envelope block rounded text-2xl dark:text-white mb-0"></i>
-                    </div>
-
-                    <div class="flex-1 ms-6">
-                        <h5 class="text-lg dark:text-white mb-2 font-medium">Email</h5>
-                        <a href="mailto:info@cloudcomputingassociates.com" class="text-slate-400">info&#64;cloudcomputingassociates.com</a>
-                    </div>
-                </div>
-
-                <div class="flex mt-4">
                     <div class="icons text-center mx-auto">
                         <i class="uil uil-map-marker block rounded text-2xl dark:text-white mb-0"></i>
                     </div>

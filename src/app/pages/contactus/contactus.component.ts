@@ -25,7 +25,7 @@ export class ContactusComponent implements OnInit {
   ngOnInit(): void {
     this.seo.update({
       title: 'Contact - Cloud Computing Associates',
-      description: 'Contact Cloud Computing Associates. Portland, Oregon, serving clients nationwide. Call +1 503-572-0066 or email info@cloudcomputingassociates.com.',
+      description: 'Contact Cloud Computing Associates. Portland, Oregon, serving clients nationwide. Use the contact form to get in touch.',
       url: SITE_ORIGIN + '/contactus'
     });
   }
