@@ -492,7 +492,21 @@ export const servicePages: ServicePage[] = [
           'More employees.',
           'More conversations.',
           'More documents.',
-          'Suddenly the question changes from "Can AI do this?" to "Why does it cost this much to do it?"',
+        ],
+      },
+      {
+        kind: 'quote',
+        intro: 'Suddenly the question changes from:',
+        quote: 'Can AI do this?',
+      },
+      {
+        kind: 'quote',
+        intro: 'to:',
+        quote: 'Why does it cost this much to do it?',
+      },
+      {
+        kind: 'prose',
+        body: [
           'We help answer that question.',
         ],
       },
