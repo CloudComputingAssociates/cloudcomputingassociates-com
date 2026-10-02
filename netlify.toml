@@ -2,8 +2,7 @@
   command = "npm run build"
   publish = "dist/cloudcomputingassociates-com/browser"
 
-# SPA fallback so client-side routes / deep links resolve to the Angular app
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# No SPA catch-all redirect: every route is prerendered to static HTML, so
+# Netlify serves each page directly. Unmatched URLs fall through to the
+# generated 404.html with a real 404 status (good for SEO) instead of being
+# rewritten to the home page with a 200.

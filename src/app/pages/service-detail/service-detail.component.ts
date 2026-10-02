@@ -61,6 +61,30 @@ export class ServiceDetailComponent implements OnInit {
       url,
     });
 
+    this.seo.setJsonLd('ld-service', {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: this.page.title,
+      description: this.page.metaDescription,
+      provider: {
+        '@type': 'Organization',
+        name: 'Cloud Computing Associates',
+        url: SITE_ORIGIN + '/'
+      },
+      areaServed: 'United States',
+      url
+    });
+
+    this.seo.setJsonLd('ld-breadcrumb', {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_ORIGIN + '/' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: SITE_ORIGIN + '/services' },
+        { '@type': 'ListItem', position: 3, name: this.page.title, item: url }
+      ]
+    });
+
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo(0, 0);
     }

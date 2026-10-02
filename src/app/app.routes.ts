@@ -33,5 +33,8 @@ export const routes: Routes = [
         data: { slug: a.slug }
     })),
 
+    // Prerendered 404 page; the postbuild script copies it to /404.html so
+    // Netlify serves a real 404 status for unmatched URLs.
+    {path:'404', component:NotFoundComponent},
     {path:'**', component:NotFoundComponent},
 ];
