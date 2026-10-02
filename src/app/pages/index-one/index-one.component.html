@@ -1,16 +1,16 @@
 <app-navbar-one [currentSection]="currentSection"/>
 
-<section class="py-36 lg:py-56 w-full table relative bg-[url('/assets/images/bg/bg.jpg')] bg-top bg-no-repeat" id="home">
+<section class="py-24 lg:py-32 w-full table relative bg-[url('/assets/images/bg/bg.jpg')] bg-top bg-no-repeat" id="home">
     <div class="absolute inset-0 bg-gradient-to-t to-slate-950/50 via-slate-950/75 from-slate-950"></div>
 
     <div class="container">
-        <div class="grid grid-cols-1 pb-8 text-center mt-10">
-            <h2 class="font-medium leading-none text-6xl mb-1 mt-10 text-white">AI that works for your business.</h2>
-            <h3 class="font-medium leading-none text-4xl mb-5 mt-10 text-white">AI + Cloud = Automation</h3>
+        <div class="grid grid-cols-1 pb-8 text-center">
+            <h2 class="font-medium leading-tight text-4xl md:text-6xl mb-3 text-white">AI that works for your business.</h2>
+            <h3 class="font-medium leading-tight text-3xl md:text-4xl mb-8 text-white">AI + Cloud = Automation</h3>
 
-            <p class="text-slate-400 text-lg max-w-xl mx-auto">We help leadership teams put AI to work across the enterprise, enabling your organization to:</p>
+            <p class="text-slate-400 text-lg leading-relaxed max-w-xl mx-auto mb-3">We help leadership teams put AI to work across the enterprise, enabling your organization to:</p>
 
-            <ul class="hero-links text-slate-400 text-lg max-w-xl mx-auto mt-6 space-y-1">
+            <ul class="hero-links text-slate-400 text-lg leading-loose max-w-xl mx-auto mb-10">
                 <li><a [routerLink]="'/services/agentic-process-automation'">Scale with AI. Not headcount.</a></li>
                 <li><a [routerLink]="'/services/agentic-process-automation'">Automate the busywork.</a></li>
                 <li><a [routerLink]="'/services/enterprise-knowledge-retrieval'">Unlock institutional knowledge.</a></li>
@@ -20,7 +20,7 @@
                 <li><a [routerLink]="'/services/ai-platform-architecture'">Accelerate Google Cloud delivery.</a></li>
             </ul>
 
-            <p class="text-white font-medium text-4xl mt-6">Get there.</p>
+            <p class="text-white font-medium text-3xl md:text-4xl">Get there.</p>
         </div>
     </div>
 </section>
