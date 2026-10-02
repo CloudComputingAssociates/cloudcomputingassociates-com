@@ -48,6 +48,7 @@ export class IndexOneComponent implements OnInit {
         addressRegion: 'OR',
         addressCountry: 'US'
       },
+      sameAs: ['https://www.linkedin.com/company/cloud-computing-associates'],
       foundingDate: '2017'
     });
   }

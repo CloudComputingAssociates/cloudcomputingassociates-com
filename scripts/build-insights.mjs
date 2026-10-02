@@ -2,8 +2,8 @@
 // Reads Markdown articles from src/content/insights/*.md, parses their front
 // matter and body, and emits:
 //   - src/app/content/insights.generated.ts  (typed article data + rendered HTML)
-//   - public/sitemap.xml                       (core routes + every insight)
 // Run automatically via the "prebuild" and "prestart" npm scripts.
+// (sitemap.xml is generated from the full route list by scripts/postbuild.mjs.)
 
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join, basename } from 'node:path';
@@ -13,10 +13,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CONTENT_DIR = join(ROOT, 'src', 'content', 'insights');
 const OUT_TS = join(ROOT, 'src', 'app', 'content', 'insights.generated.ts');
-const OUT_SITEMAP = join(ROOT, 'public', 'sitemap.xml');
-const ORIGIN = 'https://cloudcomputingassociates.com';
-
-const CORE_ROUTES = ['/', '/aboutus', '/services', '/contactus', '/insights'];
 
 function parseFrontMatter(raw) {
   const match = raw.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/);
@@ -196,20 +192,6 @@ function writeTs(articles) {
   writeFileSync(OUT_TS, header + iface + body, 'utf8');
 }
 
-function writeSitemap(articles) {
-  const urls = [...CORE_ROUTES.map((r) => ORIGIN + (r === '/' ? '/' : r))];
-  for (const a of articles) {
-    urls.push(`${ORIGIN}/insights/${a.slug}`);
-  }
-  const body =
-    '<?xml version="1.0" encoding="UTF-8"?>\n' +
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    urls.map((u) => `  <url>\n    <loc>${u}</loc>\n  </url>`).join('\n') +
-    '\n</urlset>\n';
-  writeFileSync(OUT_SITEMAP, body, 'utf8');
-}
-
 const articles = loadArticles();
 writeTs(articles);
-writeSitemap(articles);
 console.log(`build-insights: generated ${articles.length} article(s).`);

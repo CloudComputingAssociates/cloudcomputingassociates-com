@@ -7,9 +7,13 @@ export interface SeoData {
   description: string;
   url: string;
   type?: string;
+  image?: string;
 }
 
 export const SITE_ORIGIN = 'https://cloudcomputingassociates.com';
+
+// Default social-share image. Replace with a dedicated 1200x630 OG card when available.
+const DEFAULT_OG_IMAGE = SITE_ORIGIN + '/assets/images/about.jpg';
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
@@ -19,15 +23,18 @@ export class SeoService {
     @Inject(DOCUMENT) private doc: Document
   ) {}
 
-  update({ title, description, url, type = 'website' }: SeoData): void {
+  update({ title, description, url, type = 'website', image = DEFAULT_OG_IMAGE }: SeoData): void {
     this.title.setTitle(title);
     this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'og:description', content: description });
     this.meta.updateTag({ property: 'og:url', content: url });
     this.meta.updateTag({ property: 'og:type', content: type });
+    this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: title });
     this.meta.updateTag({ name: 'twitter:description', content: description });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
     this.setCanonical(url);
   }
 
