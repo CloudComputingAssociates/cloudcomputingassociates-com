@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { NavbarOneComponent } from "../../components/navbar/navbar-one/navbar-one.component";
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from "../../components/about/about.component";
@@ -6,11 +7,13 @@ import { ServiceOneComponent } from "../../components/service-one/service-one.co
 import { GetInTouchComponent } from "../../components/get-in-touch/get-in-touch.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { SeoService, SITE_ORIGIN } from '../../services/seo.service';
+import { deliveryFramework } from '../../data/services';
 
 @Component({
   selector: 'app-index-one',
   imports: [
     CommonModule,
+    RouterLink,
     NavbarOneComponent,
     AboutComponent,
     ServiceOneComponent,
@@ -22,6 +25,7 @@ import { SeoService, SITE_ORIGIN } from '../../services/seo.service';
 })
 export class IndexOneComponent implements OnInit {
   currentSection: string | null = 'home';
+  deliveryFramework = deliveryFramework;
 
   constructor(private seo: SeoService) {}
 

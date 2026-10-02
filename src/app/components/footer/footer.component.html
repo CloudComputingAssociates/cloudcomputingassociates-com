@@ -14,6 +14,12 @@
                             <li class="inline px-2 mt-[10px]"><a [routerLink]="'/insights'" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out ms-2">Insights</a></li>
                             <li class="inline px-2 mt-[10px]"><a [routerLink]="'/contactus'" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out ms-2">Contact Us</a></li>
                         </ul>
+
+                        <ul class="list-none text-center mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1">
+                            <li *ngFor="let s of servicePages" class="inline">
+                                <a [routerLink]="['/services', s.slug]" class="text-sm text-gray-400 hover:text-gray-300 duration-500 ease-in-out">{{s.title}}</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

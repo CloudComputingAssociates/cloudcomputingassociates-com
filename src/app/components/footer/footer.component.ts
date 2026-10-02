@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { servicePages } from '../../data/services';
 
 @Component({
   selector: 'app-footer',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
   year:any
+  servicePages = servicePages
   
   ngOnInit(): void {
     this.year = new Date().getFullYear();
