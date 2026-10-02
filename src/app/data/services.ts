@@ -252,8 +252,9 @@ export const servicePages: ServicePage[] = [
         body: [
           'Underneath the business workflow may be graph-based orchestration, tool calling, model selection, persistent state, evaluation suites, tracing, and least-privilege service identities.',
           'We use open agent frameworks and open protocols where appropriate rather than building your business around a proprietary black box.',
-          "On Google Cloud, that can include Google's Agent Development Kit and Vertex AI.",
-          "On Microsoft environments, we can work with Microsoft's agent framework and Azure AI services.",
+          "On Google Cloud, that can include Google's Agent Development Kit (ADK) and Vertex AI.",
+          'On Microsoft environments, we can work with the Microsoft Agent Framework (Semantic Kernel) and Azure AI Foundry.',
+          'Across either environment we integrate the frontier model APIs directly—Google Gemini, the Anthropic API (Claude), and the OpenAI API—selecting the model per task.',
           'The architecture is selected around the problem—not because a particular technology happens to be fashionable.',
         ],
       },
@@ -523,7 +524,7 @@ export const servicePages: ServicePage[] = [
         kind: 'labelList',
         heading: 'Five ways we commonly improve AI systems',
         items: [
-          { label: 'Use the right model', desc: 'Not every task needs the most powerful—and most expensive—model.' },
+          { label: 'Use the right model', desc: 'Not every task needs the most powerful—and most expensive—model. We work across Google Gemini, the Anthropic API, and the OpenAI API and match the model to the task.' },
           { label: 'Send less information', desc: 'Large amounts of unnecessary context increase cost and often slow responses.' },
           { label: 'Avoid doing the same work twice', desc: 'Caching can eliminate repeated model calls and repeated computation.' },
           { label: 'Keep agents under control', desc: 'Limits on steps, tool calls, tokens, and execution time prevent runaway processes.' },
@@ -608,8 +609,9 @@ export const servicePages: ServicePage[] = [
         heading: 'Google Cloud, Azure, or your infrastructure.',
         intro: 'We primarily work with:',
         items: [
-          { label: 'Google Cloud', desc: "Including Vertex AI, Gemini, Google's Agent Development Kit, and Google Cloud infrastructure." },
-          { label: 'Microsoft Azure', desc: "Including Azure AI services, Microsoft's agent framework, and Microsoft identity and infrastructure." },
+          { label: 'Google Cloud', desc: "Including Vertex AI, Gemini, Google's Agent Development Kit (ADK), and Google Cloud infrastructure." },
+          { label: 'Microsoft Azure', desc: 'Including Azure AI Foundry, the Microsoft Agent Framework and Semantic Kernel, and Microsoft identity and infrastructure.' },
+          { label: 'Model providers', desc: 'We integrate the leading model APIs directly—Google Gemini, the Anthropic API (Claude), and the OpenAI API—and match the model to each task.' },
           { label: 'Your own infrastructure', desc: 'Including containerized AI workloads and Kubernetes where self-hosting makes sense.' },
         ],
       },
